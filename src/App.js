@@ -3,12 +3,16 @@ import React, { useState } from 'react';
 import Weather from './components/Weather';
 import './styles/weather.css';
 
+const dotenv = require("dotenv")
+
+dotenv.config()
+
 const App = () => {
   const [city, setCity] = useState('');
   const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState('');
 
-  const API_KEY = "09c9e15433683093a39b431de18381e2";
+  const API_KEY = process.env.API_KEY;
 
   const handleSearch = async (e) => {
     e.preventDefault();
